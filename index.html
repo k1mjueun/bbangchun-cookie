@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>빵춘쿠키 · 오늘의 빵춘</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- 폰트는 논블로킹 로드 (오프라인/느린 네트워크에서도 렌더 안 막힘) -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@700&display=swap"
+        media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@700&display=swap" />
+  </noscript>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" class="app">
+
+    <!-- ============ 1. 인트로 (로고) ============ -->
+    <section id="screen-intro" class="screen screen--intro is-active">
+      <div class="intro-inner">
+        <div class="logo-crumbs" aria-hidden="true"></div>
+        <h1 class="logo">빵춘쿠키</h1>
+        <p class="logo-sub">오 늘 의 &nbsp;빵 춘</p>
+        <p class="tap-hint">화면을 톡! 눌러보세요</p>
+      </div>
+    </section>
+
+    <!-- ============ 2. 토스터기 ============ -->
+    <section id="screen-toaster" class="screen screen--toaster">
+      <p class="toaster-title">오늘의 빵춘</p>
+
+      <div class="toaster-stage">
+        <!-- 튀어나올 빵이 잠깐 보이는 슬롯 -->
+        <div id="peek-bread" class="peek-bread" aria-hidden="true"></div>
+
+        <!-- 토스터기 (눈코입 없음) -->
+        <div id="toaster" class="toaster" role="button" tabindex="0" aria-label="토스터기">
+          <div class="toaster-body">
+            <div class="toaster-slot"></div>
+            <div class="toaster-shine"></div>
+            <div class="toaster-dial"></div>
+          </div>
+          <div class="toaster-foot toaster-foot--l"></div>
+          <div class="toaster-foot toaster-foot--r"></div>
+
+          <!-- 드래그 가능한 레버 -->
+          <div class="lever-track">
+            <div id="lever" class="lever" role="slider" tabindex="0"
+                 aria-label="토스터 레버 (아래로 내리기)" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="lever-knob"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button id="push-btn" class="push-btn" type="button">눌러서 빵 굽기</button>
+      <p class="toaster-hint">레버를 아래로 쭈욱 내리거나 버튼을 눌러요</p>
+    </section>
+
+    <!-- ============ 3. 결과 (빵 + 운세) ============ -->
+    <section id="screen-result" class="screen screen--result">
+      <div class="result-inner">
+        <div id="result-bread" class="result-bread"></div>
+        <div class="fortune-card">
+          <p class="fortune-label">오늘의 빵 한 조각</p>
+          <h2 id="fortune-name" class="fortune-name">소금빵</h2>
+          <p id="fortune-text" class="fortune-text"></p>
+        </div>
+        <button id="retry-btn" class="retry-btn" type="button">다시 굽기 🍞</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="breads.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
